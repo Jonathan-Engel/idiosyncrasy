@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: wagoid/commitlint-github-action@v1
         with:
-          cmd: add prettier
+          cmd: yarn install
       - run: prettier --check
         
   build:
