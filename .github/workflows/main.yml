@@ -8,9 +8,10 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v2
+      - uses: borales/actions-yarn@v2.0.0
         with:
-          fetch-depth: 0
-      - uses: wagoid/commitlint-github-action@v1
+          cmd: install
+      - run: prettier --check .prettierrc
 
   build:
     name: Build Gatsby Site
