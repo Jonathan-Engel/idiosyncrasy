@@ -3,15 +3,17 @@ on: [pull_request]
 
 jobs:
   lint:
+    name: Run Prettier Check
     runs-on: ubuntu-latest
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
       - uses: wagoid/commitlint-github-action@v1
-
+        with:
+          cmd: add prettier
+      - run: prettier --check
+        
   build:
     name: Build Gatsby Site
     runs-on: ubuntu-latest
